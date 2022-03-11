@@ -11,11 +11,27 @@ class PostController extends Controller
             'Mon SUPER deuxieme titre'
         ];
 
-        $title = 'Mon SUPER premier titre';
-        $title2 = 'Mon SUPER deuxieme titre';
-
         return view('articles', [
             'posts' => $posts
         ]);
+    }
+
+    public function show($id)
+    {
+        $posts = [
+            1 => 'Mon titre n°1',
+            2 => 'Mon titre n°2'
+        ];
+
+        $post = $posts[$id] ?? 'Pas de titre';
+
+        return view('article', [
+            'post' => $post
+        ]);
+    }
+
+    public function contact()
+    {
+        return view('contact');
     }
 }
